@@ -34,3 +34,12 @@ ORDER BY xact_runtime DESC;
 -- удалить процесс (пид)
 SELECT pg_terminate_backend(19212);
 ```
+
+```go
+var typedError *pgconn.PgError
+	if errors.As(err, &typedError) {
+		if typedError.Code == untranslatableCharacterErrorCode {
+			return pack.ErrInvalidArgument
+		}
+	}
+ ```
